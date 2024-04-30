@@ -1,3 +1,4 @@
+//For Arrays
 function Test() {
   const arr = [];
   function enqueue(element) {
@@ -36,3 +37,36 @@ console.log(queue.print());
 queue.del();
 console.log(queue.print());
 console.log(queue.size());
+
+//For Objects
+function testObj() {
+  let obj = {};
+  let front = 0;
+  let rear = -1;
+
+  function addObj(element) {
+    obj[++rear] = element;
+  }
+
+  function objPrint() {
+    let result = Object.values(obj);
+    for (let s of result) {
+      return s;
+    }
+  }
+
+  function objSize() {
+    return Object.values(obj).length;
+  }
+
+  return {
+    addObj,
+    objPrint,
+    objSize,
+  };
+}
+
+const objQueue = testObj();
+objQueue.addObj({ name: "Arun", age: 29 });
+console.log(objQueue.objPrint());
+console.log(objQueue.objSize());
